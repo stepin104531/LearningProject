@@ -53,13 +53,13 @@ void input()
    void search()
    {
 	 char ch;
-	 char nam[100];
-	 int n,i,m=1;
+	 char nam1[100];
+	 int n1,i,m=1;
 	 FILE *fp;
 	 fp=fopen("bidur.dat","rb");
 	 do{
 		printf("\nenter your choice:");
-		ch=getche();
+		ch=getch();
 	 }while(ch!='1' && ch!='2');
 	 switch(ch){
 	      case '1':
@@ -69,11 +69,11 @@ void input()
 		    ts=tl/sl;
 		    do{
 			printf("\nchoose customer number:");
-			scanf("%d",&n);
-			if(n<=0 || n>ts)
+			scanf("%d",&n1);
+			if(n1<=0 || n1>ts)
 			printf("\nenter correct\n");
 			else{
-			    fseek(fp,(n-1)*sl,SEEK_SET);
+			    fseek(fp,(n1-1)*sl,SEEK_SET);
 			    fread(&customer,sl,1,fp);
 			    output();
 			}
@@ -95,10 +95,10 @@ void input()
 			printf("\nenter the name:");
 			scanf("%s",nam);
 			fseek(fp,0,SEEK_SET);
-			for(i=1;i<=n;i++)
+			for(i=1;i<=n1;i++)
 			{
 			     fread(&customer,sizeof(customer),1,fp);
-			     if(strcmp(customer.name,nam)==0)
+			     if(strcmp(customer.name,nam1)==0)
 			     {
 				output();
 				m=0;
